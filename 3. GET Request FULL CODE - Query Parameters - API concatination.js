@@ -30,15 +30,17 @@ const responseField = document.querySelector('#responseField');
 const getSuggestions = () => {
 const wordQuery = inputField.value;
 const endpoint = `${url}${queryParams}${wordQuery}`;
+
  const xhr = new XMLHttpRequest();
  xhr.responseType = 'json';
+
  xhr.onreadystatechange = () => {
    if (xhr.readyState === XMLHttpRequest.DONE) {
-  renderResponse(xhr.response)
-};
+     renderResponse(xhr.response);
+   }
+ }
  xhr.open('GET', endpoint);
  xhr.send();
- }
 }
 
 // Clear previous results and display results to webpage
